@@ -10,18 +10,25 @@ router.get('/', async (req, res) => {
     }
 })
 
-// 
-router.get('/', async (req, res) => {
+// all public trips page
+router.get('/trips', async (req, res) => {
     try {
-
+        const tripData = await Trip.findall({
+            include: [{model: User, attributes: ['name']}],
+            where: { isPublic: true } // only Trips where isPublic is set to true ? may need to refactor this to get it to function properly
+        })
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
-router.get('/', async (req, res) => {
+// view a single trip
+router.get('/:id', async (req, res) => {
     try {
-
+        const tripData = await Trip.findByPk({
+            where: { trip_id: req.params.id },
+            include: [{model: User, attributes: ['name']}],
+        })
     } catch (err) {
         res.status(500).json(err)
     }
