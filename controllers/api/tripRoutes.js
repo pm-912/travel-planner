@@ -35,9 +35,10 @@ router.put('/:id', async (req, res) => {
     try {
         const updateTrip = await Trip.update(
             {
-                //trip keys: req.body.key,
-                //trip keys: req.body.key,
-                //trip keys: req.body.key,
+                destination: req.body.destination,
+                stay: req.body.stay,
+                departure: req.body.departure,
+                accomodation: req.body.accomodation
             },
             {
                 where: { trip_id: req.params.id }
@@ -71,7 +72,7 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-// delete comment?
+// delete comment - 
 router.delete('/:id', async (req, res) => {
     try {
 
