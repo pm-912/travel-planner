@@ -1,55 +1,78 @@
 const router = require('express').Router();
 const { Trip, Comment } = require('../../models');
 
+
 // post call for new trip
-// post call for new comment
-// put call for editing trip
-// put call for editing comment?
-// delete call for trip
-// delete call for comment
 router.post('/', async (req, res) => {
     try {
         const newTrip = await Trip.create({
             ...req.body,
             user_id: req.session.user_id
         })
+
+        res.status(200).json(newTrip)
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
+// post call for adding a new comment
 router.post('/:id', async (req, res) => {
     try {
+        const newComment = await Comment.create({
+            ...req.body,
+            user_id: req.session.user_id
+        })
+
+        res.status(200).json(newcomment)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+// put call for editing trip
+router.put('/:id', async (req, res) => {
+    try {
+        const updateTrip = await Trip.update(
+            {
+                //trip keys: req.body.key,
+                //trip keys: req.body.key,
+                //trip keys: req.body.key,
+            },
+            {
+                where: { trip_id: req.params.id }
+            }
+        )
+            res.status(200).json(updateTrip)
 
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
-router.post('/:id', async (req, res) => {
-    try {
+// comment update?
+// router.put('/:id', async (req, res) => {
+//     try {
 
+//     } catch (err) {
+//         res.status(500).json(err)
+//     }
+// });
+
+// delete call for trip
+router.delete('/:id', async (req, res) => {
+    try {
+        Trip.destroy({
+            where: { id: req.params.id}
+        })
+        res.status(200).json("Trip successfully deleted")
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
-router.post('/:id', async (req, res) => {
-    try {
-
-    } catch (err) {
-        res.status(500).json(err)
-    }
-});
-
-router.post('/:id', async (req, res) => {
-    try {
-
-    } catch (err) {
-        res.status(500).json(err)
-    }
-})
-router.post('/:id', async (req, res) => {
+// delete comment?
+router.delete('/:id', async (req, res) => {
     try {
 
     } catch (err) {
