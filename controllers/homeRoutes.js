@@ -10,6 +10,15 @@ router.get('/', async (req, res) => {
     }
 })
 
+// login page
+router.get('/login', async (req, res) => {
+    try {
+
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 // all public trips page
 router.get('/trips', async (req, res) => {
     try {
@@ -25,9 +34,8 @@ router.get('/trips', async (req, res) => {
 // view a single trip
 router.get('/:id', async (req, res) => {
     try {
-        const tripData = await Trip.findByPk({
-            where: { trip_id: req.params.id },
-            include: [{model: User, attributes: ['name']}],
+        const tripData = await Trip.findByPk((req.params.id),
+            { include: [{model: User, attributes: ['name']}],
         })
     } catch (err) {
         res.status(500).json(err)
