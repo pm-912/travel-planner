@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         const passwordMatch = await bcrypt.compare(password, user.password);
         // If they dont match throw an error
         if (!passwordMatch) {
-            return res.status(401).json({ message: "Invalid credentials" });
+            return res.status(401).json({ message: "Invalid password" });
         }
         // new user session
         req.session.user = user;
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
         res.status(200).json({ message: "Login successful" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Internal Server Error" });
+        res.status(500).json({ message: "Server Error" });
     }
 });
 
