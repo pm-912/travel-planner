@@ -12,17 +12,17 @@ Trip.init({
   destination: {
     type: DataTypes.STRING,
   },
-  stay: {
+  stayLength: {
     type: DataTypes.INTEGER,
   },
-  departure: {
+  departureDate: {
     type: DataTypes.DATE,
   },
   accomodation: {
     type: DataTypes.STRING,
   },
   public: {
-    type: DataTypes.STRING,
+    type: DataTypes.BOOLEAN,
   },
 }, {
   sequelize,
