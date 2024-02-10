@@ -1,0 +1,14 @@
+<script id="my-template" type="text/x-handlebars-template">
+  {{#if loggedIn}}
+    <p>Figure out where you are going</p>
+    <p>Length of stay with map</p>
+    <select>
+      <option>Choose activities</option>
+    </select>
+    <select>
+      <option>Accommodations</option>
+    </select>
+  {{else}}
+    <a href="/login">You must login first to view this page</a>
+  {{/if}}
+</script>
