@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
-const sequelize = require('../config/sequelize');
+const sequelize = require('../config/connection.js');
 
 class Trip extends Model {}
 
@@ -9,19 +9,19 @@ Trip.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  destination: {
+  destination: { // not null
     type: DataTypes.STRING,
   },
-  stayLength: {
+  stayLength: { // null, default value
     type: DataTypes.INTEGER,
   },
-  departureDate: {
+  departureDate: { //null
     type: DataTypes.DATE,
   },
-  accomodation: {
+  accomodation: { //null
     type: DataTypes.STRING,
   },
-  public: {
+  public: { // not null default value private?
     type: DataTypes.BOOLEAN,
   },
 }, {
@@ -30,7 +30,7 @@ Trip.init({
 });
 
 // Define associations
-Trip.belongsTo(User, { foreignKey: 'userid' });
-Trip.hasMany(Comment, { foreignKey: 'tripid2' });
+// Trip.belongsTo(User, { foreignKey: 'userid' });
+// Trip.hasMany(Comment, { foreignKey: 'tripid2' });
 
 module.exports = Trip;

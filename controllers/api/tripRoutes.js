@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Trip, Comment } = require('../../models');
+const { Trip } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 
 // post call for new trip
@@ -16,29 +17,16 @@ router.post('/', async (req, res) => {
     }
 })
 
-// post call for adding a new comment
-router.post('/:id', async (req, res) => {
-    try {
-        const newComment = await Comment.create({
-            ...req.body,
-            user_id: req.session.user_id
-        })
-
-        res.status(200).json(newcomment)
-    } catch (err) {
-        res.status(500).json(err)
-    }
-})
-
 // put call for editing trip
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const updateTrip = await Trip.update(
-            {
+            { // eligible datapoints to update
                 destination: req.body.destination,
                 stay: req.body.stay,
                 departure: req.body.departure,
-                accomodation: req.body.accomodation
+                accomodation: req.body.accomodation,
+                public: req.body.public
             },
             {
                 where: { trip_id: req.params.id }
@@ -51,15 +39,6 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-// comment update?
-// router.put('/:id', async (req, res) => {
-//     try {
-
-//     } catch (err) {
-//         res.status(500).json(err)
-//     }
-// });
-
 // delete call for trip
 router.delete('/:id', async (req, res) => {
     try {
@@ -70,12 +49,21 @@ router.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
-})
+});
 
-// delete comment - 
-router.delete('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
-
+        const tripData = await Trip.findByPk((req.params.id),
+            // {
+            //     include: [
+            //         { model: User, attributes: ['name'] },
+            //         { model: Comment, attributes: ['content'] }
+            //     ],
+            // }
+            )
+        // const trip = tripData.map((trip) => trip.get({ plain: true }));
+        // res.render('trip', { trip })
+        res.status(200).json(tripData);
     } catch (err) {
         res.status(500).json(err)
     }

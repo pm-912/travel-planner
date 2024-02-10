@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth.js')
 // home page - what do we want on here?
 router.get('/', async (req, res) => {
     try {
+        console.log("")
         res.render('homepage')
     } catch (err) {
         res.status(500).json(err)
@@ -54,3 +55,5 @@ router.get('/trips/:id', withAuth, async (req, res) => {
         res.status(500).json(err)
     }
 })
+
+module.exports = router;

@@ -1,7 +1,7 @@
-const sequelize = require('../config/sequelize');
-const User = require('./User');
-const Trip = require('./Trip');
-const Comment = require('./Comment');
+const sequelize = require('../config/connection.js');
+const User = require('./userModel.js');
+const Trip = require('./tripModel.js');
+const Comment = require('./commentModel.js');
 
 // Define associations between models if needed
 User.hasMany(Comment, { foreignKey: 'userid1' });
