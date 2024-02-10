@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/sequelize'); 
+const sequelize = require('../config/connection.js'); 
 
 
 class Comment extends Model {}
@@ -34,7 +34,7 @@ Comment.init({
 });
 
 // Associations
-Comment.belongsTo(User, { foreignKey: 'userid1' });
-Comment.belongsTo(Trip, { foreignKey: 'tripid2' });
+// Comment.belongsTo(User, { foreignKey: 'userid1' });
+// Comment.belongsTo(Trip, { foreignKey: 'tripid2' });
 
 module.exports = Comment;

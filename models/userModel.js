@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const sequelize = require('../config/sequelize')
+const sequelize = require('../config/connection.js')
 
 class User extends Model { 
   async checkPassword(loginPw) {
@@ -29,7 +29,7 @@ User.init({
 });
 
 // Define associations
-User.hasMany(Comment, { foreignKey: 'userid1' });
-User.hasMany(Trip, { foreignKey: 'userid' });
+// User.hasMany(Comment, { foreignKey: 'userid1' });
+// User.hasMany(Trip, { foreignKey: 'userid' });
 
 module.exports = User;

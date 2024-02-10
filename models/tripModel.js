@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
-const sequelize = require('../config/sequelize');
+const sequelize = require('../config/connection.js');
 
 class Trip extends Model {}
 
@@ -30,7 +30,7 @@ Trip.init({
 });
 
 // Define associations
-Trip.belongsTo(User, { foreignKey: 'userid' });
-Trip.hasMany(Comment, { foreignKey: 'tripid2' });
+// Trip.belongsTo(User, { foreignKey: 'userid' });
+// Trip.hasMany(Comment, { foreignKey: 'tripid2' });
 
 module.exports = Trip;
