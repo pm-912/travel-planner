@@ -14,13 +14,13 @@ User.init({
     primaryKey: true,
     autoIncrement: true,
   }, 
-  username: {
+  username: { // not null
     type: DataTypes.STRING,
   },
-  email: {
+  email: {// not null
     type: DataTypes.STRING, 
   },
-  password: {
+  password: {// not null
     type: DataTypes.STRING,
   },
 }, { 

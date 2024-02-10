@@ -10,22 +10,22 @@ Comment.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  userid: {
+  userid: { // not null
     type: DataTypes.INTEGER,
   },
-  tripid: {
+  tripid: { // not null
     type: DataTypes.INTEGER,
   },
-  content: {
+  content: { // not null
     type: DataTypes.STRING,
   },
-  createdon: {
+  createdon: { // not null maybe do auto timestamp?
     type: DataTypes.DATE,
   },
-  tripid2: {
+  tripid2: { // not null
     type: DataTypes.INTEGER,
   },
-  userid1: {
+  userid1: { // not null
     type: DataTypes.INTEGER,
   },
 }, {

@@ -25,7 +25,8 @@ router.put('/:id', withAuth, async (req, res) => {
                 destination: req.body.destination,
                 stay: req.body.stay,
                 departure: req.body.departure,
-                accomodation: req.body.accomodation
+                accomodation: req.body.accomodation,
+                public: req.body.public
             },
             {
                 where: { trip_id: req.params.id }
@@ -45,6 +46,24 @@ router.delete('/:id', async (req, res) => {
             where: { id: req.params.id}
         })
         res.status(200).json("Trip successfully deleted")
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const tripData = await Trip.findByPk((req.params.id),
+            // {
+            //     include: [
+            //         { model: User, attributes: ['name'] },
+            //         { model: Comment, attributes: ['content'] }
+            //     ],
+            // }
+            )
+        // const trip = tripData.map((trip) => trip.get({ plain: true }));
+        // res.render('trip', { trip })
+        res.status(200).json(tripData);
     } catch (err) {
         res.status(500).json(err)
     }

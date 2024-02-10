@@ -9,19 +9,19 @@ Trip.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  destination: {
+  destination: { // not null
     type: DataTypes.STRING,
   },
-  stayLength: {
+  stayLength: { // null, default value
     type: DataTypes.INTEGER,
   },
-  departureDate: {
+  departureDate: { //null
     type: DataTypes.DATE,
   },
-  accomodation: {
+  accomodation: { //null
     type: DataTypes.STRING,
   },
-  public: {
+  public: { // not null default value private?
     type: DataTypes.BOOLEAN,
   },
 }, {

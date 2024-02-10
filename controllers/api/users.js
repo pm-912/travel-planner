@@ -7,7 +7,7 @@ router.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
     try {
         // if email is resgistered
-        const emailExists = await User.findOne({ email });
+        const emailExists = await User.findOne({ email }); //check
         if (emailExists) {
             return res.status(400).json({ message: "Email already exists" });
         }
@@ -80,5 +80,22 @@ router.post('/logout', (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
+
+router.get('/users/:id', async (req, res) => {
+    try {
+        const userData = await User.findByPk((req.params.id))
+            // {
+            //     include: [
+            //         { model: User, attributes: ['name'] },
+            //         { model: Comment, attributes: ['content'] }
+            //     ],
+            // })
+        const user = userData.map((user) => user.get({ plain: true }));
+        // res.render('user', { user })
+        res.status(200).json({user})
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router;
