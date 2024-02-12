@@ -23,13 +23,13 @@ router.put('/:id', async (req, res) => {
         const updateTrip = await Trip.update(
             { // eligible datapoints to update
                 destination: req.body.destination,
-                stay: req.body.stay,
-                departure: req.body.departure,
-                accomodation: req.body.accomodation,
+                stayLength: req.body.stayLength,
+                departureDate: req.body.departureDate,
+                accommodation: req.body.accommodation,
                 public: req.body.public
             },
             {
-                where: { trip_id: req.params.id }
+                where: { tripid: req.params.id }
             }
         )
             res.status(200).json(updateTrip)
@@ -43,7 +43,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         Trip.destroy({
-            where: { id: req.params.id}
+            where: { tripid: req.params.id}
         })
         res.status(200).json("Trip successfully deleted")
     } catch (err) {
