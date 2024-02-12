@@ -10,31 +10,35 @@ Comment.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  userid: { // not null
+  userid: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
-  tripid: { // not null
+  tripid: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
-  content: { // not null
+  content: {
     type: DataTypes.STRING,
+    allowNull: false,
   },
-  createdon: { // not null maybe do auto timestamp?
+  createdon: {
     type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: DataTypes.NOW,
   },
-  tripid2: { // not null
+  tripid2: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
-  userid1: { // not null
+  userid1: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
 }, {
   sequelize,
   modelName: 'Comment',
 });
 
-// Associations
-// Comment.belongsTo(User, { foreignKey: 'userid1' });
-// Comment.belongsTo(Trip, { foreignKey: 'tripid2' });
 
 module.exports = Comment;

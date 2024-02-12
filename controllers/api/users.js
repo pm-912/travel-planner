@@ -16,13 +16,11 @@ router.post('/signup', async (req, res) => {
         if (usernameExists) {
             return res.status(400).json({ message: "Username already taken" });
         }
-        // hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
         // make new user
         const newUser = new User({
             username,
             email,
-            password: hashedPassword
+            password
         });
         // save user
         await newUser.save();
