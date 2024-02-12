@@ -7,12 +7,12 @@ router.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
     try {
         // if email is resgistered
-        const emailExists = await User.findOne({ email }); //check
+        const emailExists = await User.findOne({ where: { email: req.body.email }}); //check
         if (emailExists) {
             return res.status(400).json({ message: "Email already exists" });
         }
         // see if username is taken
-        const usernameExists = await User.findOne({ username });
+        const usernameExists = await User.findOne({ where: { username: req.body.username }});
         if (usernameExists) {
             return res.status(400).json({ message: "Username already taken" });
         }
