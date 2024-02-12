@@ -85,7 +85,7 @@ router.post('/logout', (req, res) => {
 router.get('/:userid', async (req, res) => {
     try {
         const userData = await User.findByPk((req.params.userid))
-        res.status(200).json({userData})
+        res.status(200).json({ userData })
     } catch (err) {
         res.status(500).json(err)
     }
