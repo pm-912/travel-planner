@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Trip } = require('../../models');
 const withAuth = require('../../utils/auth')
-
+// ADD withAuth to functions before finish
 
 // post call for new trip
 router.post('/', async (req, res) => {
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
 })
 
 // put call for editing trip
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         const updateTrip = await Trip.update(
             { // eligible datapoints to update
@@ -53,16 +53,7 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const tripData = await Trip.findByPk((req.params.id),
-            // {
-            //     include: [
-            //         { model: User, attributes: ['name'] },
-            //         { model: Comment, attributes: ['content'] }
-            //     ],
-            // }
-            )
-        // const trip = tripData.map((trip) => trip.get({ plain: true }));
-        // res.render('trip', { trip })
+        const tripData = await Trip.findByPk(req.params.id)
         res.status(200).json(tripData);
     } catch (err) {
         res.status(500).json(err)
