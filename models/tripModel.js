@@ -18,7 +18,7 @@ Trip.init({
   departureDate: { //null
     type: DataTypes.DATE,
   },
-  accomodation: { //null
+  accommodation: { //null
     type: DataTypes.STRING,
   },
   public: { // not null default value private?
