@@ -81,18 +81,11 @@ router.post('/logout', (req, res) => {
     }
 });
 
-router.get('/users/:id', async (req, res) => {
+// only for testing purposes
+router.get('/:userid', async (req, res) => {
     try {
-        const userData = await User.findByPk((req.params.id))
-            // {
-            //     include: [
-            //         { model: User, attributes: ['name'] },
-            //         { model: Comment, attributes: ['content'] }
-            //     ],
-            // })
-        const user = userData.map((user) => user.get({ plain: true }));
-        // res.render('user', { user })
-        res.status(200).json({user})
+        const userData = await User.findByPk((req.params.userid))
+        res.status(200).json({userData})
     } catch (err) {
         res.status(500).json(err)
     }
