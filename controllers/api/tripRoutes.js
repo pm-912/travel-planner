@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
     try {
         const newTrip = await Trip.create({
             ...req.body,
-            user_id: req.session.user_id
+            userid: req.session.userid
         })
 
         res.status(200).json(newTrip)

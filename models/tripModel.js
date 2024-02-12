@@ -7,30 +7,34 @@ Trip.init({
   tripid: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncrement: true,
+    autoIncrement: true
   },
-  destination: { // not null
+  destination: {
     type: DataTypes.STRING,
+    allowNull: false
   },
-  stayLength: { // null, default value
+  stayLength: {
     type: DataTypes.INTEGER,
+    allowNull: true,
+    defaultValue: 3
   },
-  departureDate: { //null
+  departureDate: {
     type: DataTypes.DATE,
+    allowNull: true
   },
-  accommodation: { //null
+  accommodation: {
     type: DataTypes.STRING,
+    allowNull: true
   },
-  public: { // not null default value private?
+  public: { 
     type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: true
   },
 }, {
   sequelize,
   modelName: 'Trip',
 });
 
-// Define associations
-// Trip.belongsTo(User, { foreignKey: 'userid' });
-// Trip.hasMany(Comment, { foreignKey: 'tripid2' });
 
 module.exports = Trip;

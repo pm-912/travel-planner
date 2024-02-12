@@ -14,22 +14,31 @@ User.init({
     primaryKey: true,
     autoIncrement: true,
   }, 
-  username: { // not null
+  username: {
     type: DataTypes.STRING,
+    allowNull: false,
   },
-  email: {// not null
+  email: {
     type: DataTypes.STRING, 
+    allowNull: false,
   },
-  password: {// not null
+  password: {
     type: DataTypes.STRING,
+    allowNull: false,
   },
-}, { 
+}, {
+  hooks: {
+    beforeCreate: async (newUserData) => {
+      newUserData.password = await bcrypt.hash(newUserData.password, 10);
+      return newUserData;
+    },
+    beforeUpdate: async (updatedUserData) => {
+      updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+      return updatedUserData;
+    },
+  },
   sequelize,
   modelName: 'User',
 });
-
-// Define associations
-// User.hasMany(Comment, { foreignKey: 'userid1' });
-// User.hasMany(Trip, { foreignKey: 'userid' });
 
 module.exports = User;
