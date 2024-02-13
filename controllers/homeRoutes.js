@@ -35,14 +35,14 @@ router.get('/plan', async (req, res) => {
     }
 })
 // view all my trips - view handlebars
-router.get('/mytrips/', async (req, res) => {
+router.get('/mytrips', async (req, res) => {
     try {
         const tripData = await Trip.findAll({
-            include: [{ model: User, attributes: ['name'] }],
+            include: [{ model: User, attributes: ['username'] }],
             where: {userid: req.session.id}
         })
         const trips = tripData.map((trip) => trip.get({ plain: true }));
-        res.render('view', { trips })
+        res.render('view', { trips, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err)
     }
@@ -56,7 +56,7 @@ router.get('/trips', async (req, res) => {
             where: { public: true } // only Trips where public is set to true ? may need to refactor this to get it to function properly
         })
         const trips = tripData.map((trip) => trip.get({ plain: true }));
-        res.render('public', { trips })
+        res.render('public', { trips, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err)
     }
@@ -74,7 +74,7 @@ router.get('/trips/:id', async (req, res) => {
                 ],
             })
         const trip = tripData.map((trip) => trip.get({ plain: true }));
-        res.render('singletrip', { trip })
+        res.render('singletrip', { trip, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err)
     }

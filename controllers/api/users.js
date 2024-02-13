@@ -8,12 +8,12 @@ router.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
     try {
         // if email is resgistered
-        const emailExists = await User.findOne({ where: { email: req.body.email }}); //check
+        const emailExists = await User.findOne({ where: { email: req.body.email } }); //check
         if (emailExists) {
             return res.status(400).json({ message: "Email already exists" });
         }
         // see if username is taken
-        const usernameExists = await User.findOne({ where: { username: req.body.username }});
+        const usernameExists = await User.findOne({ where: { username: req.body.username } });
         if (usernameExists) {
             return res.status(400).json({ message: "Username already taken" });
         }
@@ -23,9 +23,10 @@ router.post('/signup', async (req, res) => {
             email,
             password
         });
-        console.log(newUser)
-   
-        res.status(201).json({ message: "User created successfully" });
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            res.status(201).json(newUser)
+        });
     } catch (error) {
         console.error('Error during signup:', error);
         res.status(500).json({ message: 'Internal Server Error' });
@@ -36,7 +37,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         // if user exist by email or username
-        const user = await User.findOne({ where: { email: email }});
+        const user = await User.findOne({ where: { email: email } });
         // if no matches throw an error
         if (!user) {
             return res.status(404).json({ message: "User not found" });
@@ -48,10 +49,11 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ message: "Invalid password" });
         }
         req.session.save(() => {
-        // new user session
-        req.session.user = user;
-        // aucess message 
-        res.status(200).json({ message: "Login successful" });
+            // new user session
+            req.session.user = user;
+            req.session.loggedIn = true;
+            // aucess message 
+            res.status(200).json({ message: "Login successful" });
         });
     } catch (error) {
         console.error(error);
