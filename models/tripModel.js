@@ -19,7 +19,7 @@ Trip.init({
     defaultValue: 3
   },
   departureDate: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: true
   },
   accommodation: {

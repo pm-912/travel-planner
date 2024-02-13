@@ -29,7 +29,7 @@ router.get('/login', async (req, res) => {
 // create new trip page
 router.get('/plan', async (req, res) => {
     try {
-        res.render('plan')
+        res.render('plan', {loggedIn: req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err)
     }

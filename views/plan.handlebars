@@ -1,43 +1,42 @@
 <div id="Plan-trip">
   <h2>Plan a Trip</h2>
   {{#if loggedIn}}
-    {{#plan trip}}
-    <div class="plan">
-      <section class="user-details">
-        <p>Choose a date for your trip:</p>
-        <input type="text" id="trip-date" placeholder="Select Date">
-        <button id="calendar-button">Pick Date</button>
-      </section>
-      <section class="plan-details">
-         <h2>Length of stay with map</h2>
-         <p>Date: {{ trip.date }}</p>
-         <!-- Add map dropdown here -->
-         <select id="map-dropdown">
-           <option value="map1">Map 1</option>
-           <option value="map2">Map 2</option>
-           <!-- Add more map options as needed -->
-         </select>
-      </section>
-      <section class="activities">
-        <h2>Plan Activities</h2>
-        <!-- Add activities dropdown here -->
-        <select id="activities-dropdown">
-          <option value="activity1">Activity 1</option>
-          <option value="activity2">Activity 2</option>
-          <!-- Add more activity options as needed -->
-        </select>
-      </section>
-      <section class="accommodations">
-        <h2>Plan Accommodations</h2>
-        <!-- Add accommodations dropdown here -->
-        <select id="accommodations-dropdown">
-          <option value="accommodation1">Accommodation 1</option>
-          <option value="accommodation2">Accommodation 2</option>
-          <!-- Add more accommodation options as needed -->
-        </select>
-      </section>
-    </div>
-    {{else}}
-    <a href="/login">You must login first to view this page</a>
+  <div class="plan">
+    <section class="user-details">
+      <p>Choose a date for your trip:</p>
+      <input type="text" id="trip-date" placeholder="Select Date">
+      <button id="calendar-button">Pick Date</button>
+    </section>
+    <section class="plan-details">
+      <h2>Length of stay</h2>
+      <p>Date:</p>
+      <!-- Add map dropdown here -->
+      <select id="map-dropdown">
+        <option value="map1">Map 1</option>
+        <option value="map2">Map 2</option>
+        <!-- Add more map options as needed -->
+      </select>
+    </section>
+    <section class="description">
+      <h2>Description</h2>
+      <!-- Add activities dropdown here -->
+      <textarea class="form-input" id="trip-desc" name="trip-desc" placeholder="Enter a short description of your trip"></textarea>
+      <!-- Add more activity options as needed -->
+      </select>
+    </section>
+    <section class="accommodations">
+      <h2>Plan Accommodations</h2>
+      <!-- Add accommodations dropdown here -->
+      <select id="accommodations-dropdown">
+        <option value="accommodation1">Hotel</option>
+        <option value="accommodation2">AirBnB</option>
+        <option value="accommodation2">Camping</option>
+        <option value="accommodation2">RV</option>
+        <!-- Add more accommodation options as needed -->
+      </select>
+    </section>
+  </div>
+  {{else}}
+  <a href="/login">You must login first to view this page</a>
   {{/if}}
 </div>
