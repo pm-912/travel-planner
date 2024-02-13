@@ -37,7 +37,7 @@ router.get('/plan', async (req, res) => {
 // view all my trips - view handlebars
 router.get('/mytrips/', async (req, res) => {
     try {
-        const tripData = await Trip.findall({
+        const tripData = await Trip.findAll({
             include: [{ model: User, attributes: ['name'] }],
             where: {userid: req.session.id}
         })
@@ -51,8 +51,8 @@ router.get('/mytrips/', async (req, res) => {
 // view all public trips page
 router.get('/trips', async (req, res) => {
     try {
-        const tripData = await Trip.findall({
-            include: [{ model: User, attributes: ['name'] }],
+        const tripData = await Trip.findAll({
+            include: [{ model: User, attributes: ['username'] }],
             where: { public: true } // only Trips where public is set to true ? may need to refactor this to get it to function properly
         })
         const trips = tripData.map((trip) => trip.get({ plain: true }));
