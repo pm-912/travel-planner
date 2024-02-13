@@ -32,7 +32,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Planner</title>
-  <link rel="stylesheet" href="/js/style.css">
+  <link rel="stylesheet" href="../../public/css/style.css">
   <style>
     .navbar {
       display: flex;
@@ -71,23 +71,27 @@
 </head>
 <body>
   <header class="navbar">
-    <img src="globe.png" alt="Spinning Globe" class="globe">
-    <h1>Travel Planner</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Public Trips</a></li>
-        <li><a href="#">View My Trips</a></li>
-        <li><a href="#">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  <img src="globe.png" alt="Spinning Globe" class="globe">
+  <h1>Travel Planner</h1>
+  <nav>
+    <ul>
+      <li><a href="/trips">Public Trips</a></li>
+      <li><a href="/mytrips">View My Trips</a></li>
+      {{#if logged_in}}
+        <button class="no-button" id="logout">logout</button>
+      {{else}}
+        <li><a href="/login">Login</a></li>
+      {{/if}}
+    </ul>
+  </nav>
+</header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
   <footer>
   </footer>
   {{#if logged_in}}
-  <script src="/js/js/login.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 </html>
