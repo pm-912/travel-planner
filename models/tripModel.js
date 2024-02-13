@@ -26,6 +26,10 @@ Trip.init({
     type: DataTypes.STRING,
     allowNull: true
   },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
   public: { 
     type: DataTypes.BOOLEAN,
     allowNull: false,
