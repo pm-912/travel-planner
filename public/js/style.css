@@ -120,3 +120,44 @@ h2 {
 .tab-pane.show {
     display: block;
 }
+/* public trips*/
+#public-trips {
+    text-align: center; 
+}
+
+.trip {
+    display: inline-block; 
+    margin: 10px; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trip h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.trip p {
+    margin-bottom: 10px;
+}
+/* plan a trip button */
+#plan-trip-button {
+    display: block; 
+    width: 200px;
+    margin: 0 auto; 
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#plan-trip-button:hover {
+    background-color: #0056b3;
+}
