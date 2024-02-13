@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,6 +14,72 @@
       <button class="btn" id="logout">logout</button>
     </nav>
     {{/if}}
+  </header>
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
+  </main>
+  <footer>
+  </footer>
+  {{#if logged_in}}
+  <script src="/js/js/login.js"></script>
+  {{/if}}
+</body>
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Planner</title>
+  <link rel="stylesheet" href="/js/style.css">
+  <style>
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+    }
+    .globe {
+      width: 40px;
+      height: auto;
+      animation: spin 2s linear infinite; /* Animation for spinning */
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li {
+      margin-right: 20px;
+    }
+    .navbar li:last-child {
+      margin-right: 0;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="globe.png" alt="Spinning Globe" class="globe">
+    <h1>Travel Planner</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Public Trips</a></li>
+        <li><a href="#">View My Trips</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </nav>
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
