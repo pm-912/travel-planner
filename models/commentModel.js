@@ -13,11 +13,7 @@ Comment.init({
   userid: {
     type: DataTypes.INTEGER,
     allowNull: false,
-<<<<<<< Updated upstream
-    defaultValue: 1
-=======
     defaultValue: 1,
->>>>>>> Stashed changes
   },
   tripid: {
     type: DataTypes.INTEGER,
@@ -35,20 +31,12 @@ Comment.init({
   tripid2: {
     type: DataTypes.INTEGER,
     allowNull: false,
-<<<<<<< Updated upstream
-    defaultValue: 1
-=======
     defaultValue: 1,
->>>>>>> Stashed changes
   },
   userid1: {
     type: DataTypes.INTEGER,
     allowNull: false,
-<<<<<<< Updated upstream
-    defaultValue: 1
-=======
     defaultValue: 1,
->>>>>>> Stashed changes
   },
 }, {
   sequelize,
