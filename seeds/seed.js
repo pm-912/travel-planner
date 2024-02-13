@@ -1,4 +1,4 @@
-const db = require('./models'); // Import your Sequelize models
+const db = require('../models'); // Import your Sequelize models
 const generateFakeUsers = require('./fakerSeedUser');
 const generateUserTrips = require('./fakerSeedTrip');
 const generateFakeComments = require('./fakerSeedComment');
@@ -24,7 +24,10 @@ const seedDatabase = async () => {
     console.log(fakeTripComments);
 
     // Seed the data into the database
-    await db.User.bulkCreate(fakeUsers);
+    const users = await db.User.bulkCreate(fakeUsers, {
+      individualHooks: true
+    });
+
     await db.Trip.bulkCreate(fakeUserTrips);
     await db.Comment.bulkCreate(fakeTripComments);
 
