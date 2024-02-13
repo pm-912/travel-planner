@@ -1,6 +1,7 @@
-/* reset styles */
-* {
-    box-sizing: border-box;
+/* sign up /login page*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 }
@@ -119,9 +120,15 @@ h2 {
 .tab-pane.show {
     display: block;
 }
-
-/* headers */
-header {
+/* Reset some default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header styles */
+  header {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
