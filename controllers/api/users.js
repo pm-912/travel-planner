@@ -24,8 +24,7 @@ router.post('/signup', async (req, res) => {
             password
         });
         console.log(newUser)
-        // save user
-        await newUser.save();
+   
         res.status(201).json({ message: "User created successfully" });
     } catch (error) {
         console.error('Error during signup:', error);
@@ -34,30 +33,26 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    const { emailOrUsername, password } = req.body;
-
+    const { email, password } = req.body;
     try {
         // if user exist by email or username
-        const user = await User.findOne({
-            $or: [
-                { email: emailOrUsername },
-                { username: emailOrUsername }
-            ]
-        });
+        const user = await User.findOne({ where: { email: email }});
         // if no matches throw an error
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
         // check password between user password and hashed password
-        const passwordMatch = await bcrypt.compare(password, user.password);
+        const passwordMatch = await user.checkPassword(password);
         // If they dont match throw an error
         if (!passwordMatch) {
             return res.status(401).json({ message: "Invalid password" });
         }
+        req.session.save(() => {
         // new user session
         req.session.user = user;
         // aucess message 
         res.status(200).json({ message: "Login successful" });
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Server Error" });

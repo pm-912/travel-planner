@@ -6,16 +6,22 @@ body {
     padding: 0;
 }
 
+/* comm styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
 .container {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 40px;
+    max-width: 1200px;
+    margin: 50px auto; 
+    padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.container h2 {
+h2 {
     font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
@@ -33,7 +39,7 @@ body {
     color: #666;
 }
 
-.form-input {
+.form-input, .btn {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -41,12 +47,9 @@ body {
 }
 
 .btn {
-    width: 100%;
-    padding: 12px;
     background-color: #f36;
     color: #fff;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     text-transform: uppercase;
@@ -72,15 +75,7 @@ body {
     text-decoration: underline;
 }
 
-/* trip info*/
-/* reset styles 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  */
-/* container styles */
+/* trip information styles */
 #trip-info {
     max-width: 800px;
     margin: 50px auto;
@@ -90,7 +85,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* tab nav styles */
 .nav.nav-tabs {
     list-style: none;
     margin-bottom: 20px;
@@ -115,7 +109,6 @@ body {
     color: #fff;
 }
 
-/* tab content styles */
 .tab-content {
     padding: 20px;
 }
@@ -127,46 +120,3 @@ body {
 .tab-pane.show {
     display: block;
 }
-/* Reset some default browser styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Header styles */
-  header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  /* Button styles */
-  .btn {
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
-  
-  /* Main container styles */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .mt-5 {
-    margin-top: 5rem;
-  }
