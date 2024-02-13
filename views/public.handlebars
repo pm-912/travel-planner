@@ -1,18 +1,20 @@
 <div id="public-trips">
   <h2>Public Trips</h2>
   {{#if loggedIn}}
-    {{#each trips}}
-      <div class="trip">
-        <h3>{{tripName}}</h3>
-        <p>{{tripLocation}}</p>
-        <p>{{tripDescription}}</p>
-        <!-- Add more trip details as needed -->
-      </div>
-    {{else}}
-      <p>No public trips available.</p>
-    {{/each}}
+  {{#each trips as |trip|}}
+  <div class="trip">
+    <card>
+      <h3>{{destination}}</h3>
+      <p>{{stayLength}} days</p>
+      <p>{{departureDate}}</p>
+    </card>
+    <span>--------------------------</span>
+    <!-- Add more trip details as needed -->
+  </div>
   {{else}}
-    <p>Please log in to view public trips.</p>
+  <p>No public trips available.</p>
+  {{/each}}
+  {{else}}
+  <p>Please log in to view public trips.</p>
   {{/if}}
 </div>
-
