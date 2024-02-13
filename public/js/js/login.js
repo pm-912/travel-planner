@@ -26,3 +26,4 @@ loginForm.addEventListener('submit', async (e) => {
     }
 });
 
+// add signup formhandler

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Trip, User } = require('../models');
 const withAuth = require('../utils/auth.js')
+//add withAuth to all requests
 
 // home page - what do we want on here?
 router.get('/', async (req, res) => {
@@ -25,22 +26,45 @@ router.get('/login', async (req, res) => {
     }
 })
 
-// all public trips page
-router.get('/trips', withAuth, async (req, res) => {
+// create new trip page
+router.get('/plan', async (req, res) => {
+    try {
+        res.render('plan')
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+// view all my trips - view handlebars
+router.get('/mytrips/', async (req, res) => {
+    try {
+        const tripData = await Trip.findall({
+            include: [{ model: User, attributes: ['name'] }],
+            where: {userid: req.session.id}
+        })
+        const trips = tripData.map((trip) => trip.get({ plain: true }));
+        res.render('view', { trips })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+// view all public trips page
+router.get('/trips', async (req, res) => {
     try {
         const tripData = await Trip.findall({
             include: [{ model: User, attributes: ['name'] }],
             where: { public: true } // only Trips where public is set to true ? may need to refactor this to get it to function properly
         })
         const trips = tripData.map((trip) => trip.get({ plain: true }));
-        res.render('trips', { trips })
+        res.render('public', { trips })
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
+
 // view a single trip
-router.get('/trips/:id', withAuth, async (req, res) => {
+router.get('/trips/:id', async (req, res) => {
     try {
         const tripData = await Trip.findByPk((req.params.id),
             {
@@ -50,7 +74,7 @@ router.get('/trips/:id', withAuth, async (req, res) => {
                 ],
             })
         const trip = tripData.map((trip) => trip.get({ plain: true }));
-        res.render('trip', { trip })
+        res.render('singletrip', { trip })
     } catch (err) {
         res.status(500).json(err)
     }
