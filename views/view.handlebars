@@ -1,41 +1,17 @@
 <div id="trip-info">
-  <h2>View Trips</h2>
+  <h2>{{username}}'s' Trips</h2>
   {{#if loggedIn}}
-    {{#each trips}}
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#destination">Destination</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#stayLength">Length of Stay</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#departureDate">Departure Date</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#accommodation">Accomodation</a>
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div id="destination" class="tab-pane fade show active">
-          <!-- Destination content goes here -->
-          <h3>Destination: {{ destination }}</h3>
-        </div>
-        <div id="stayLength" class="tab-pane fade">
-          <!-- Activity content goes here -->
-          <h3>Length of Stay: {{ lengthOfStay }}</h3>
-        </div>
-        <div id="departureDate" class="tab-pane fade">
-          <!-- Dates content goes here -->
-          <h3>Departure Date: {{ departureDate }}</h3>
-        </div>
-        <div id="accommodation" class="tab-pane fade">
-          <!-- User info content goes here -->
-          <h3>Accommodation: {{ accommodation }}</h3>
-        </div>
-      </div>
-    {{/each}}
+  {{#each trips as |trip|}}
+  <div class="tab-content">
+    <card>
+      <h3>Destination: {{destination}}</h3>
+      <p>Length of Stay: {{stayLength}} days</p>
+      <p>Departure Date: {{ departureDate }}</p>
+      <p>Accommodation: {{ accommodation }}</p>
+    </card>
+  </div>
+  {{/each}}
   {{else}}
-    <p>No trips available.</p>
+  <p>No trips available.</p>
   {{/if}}
 </div>
