@@ -19,7 +19,7 @@
     <section class="description">
       <p>Description</p>
       <!-- Add activities dropdown here -->
-      <textarea class="form-input" id="trip-desc" name="trip-desc" placeholder="Enter a short description of your trip"></textarea>
+      <input type="text" id="trip-desc" name="trip-desc" placeholder="Enter a short description of your trip"></input>
       <!-- Add more activity options as needed -->
       </select>
     </section>
@@ -35,13 +35,13 @@
         <!-- Add more accommodation options as needed -->
       </select>
     </section>
-    <section class="public">
+    {{!-- <section class="public">
       <p>Set trip to private? Set to public on by default</p>
       <select id="privacy">
         <option value="private">Yes, set this trip to private</option>
         <option value="public">No, keep this trip public</option>
       </select>
-    </section>
+    </section> --}}
     <button id="submit-trip">Add to My Trips!</button>
   </form>
   {{else}}
