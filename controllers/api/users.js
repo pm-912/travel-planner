@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
         }
         req.session.save(() => {
             // new user session
-            req.session.user = user;
+            req.session.userid = user.userid;
             req.session.loggedIn = true;
             // aucess message 
             res.status(200).json({ message: "Login successful" });
