@@ -10,13 +10,13 @@ const seedDatabase = async () => {
     await db.sequelize.sync({ force: true });
 
     // Generate fake users
-    const fakeUsers = await generateFakeUsers(5);
+    const fakeUsers = generateFakeUsers(5);
 
     // Generate fake past and future trips for each user
-    const fakeUserTrips = await generateUserTrips(fakeUsers);
+    const fakeUserTrips = generateUserTrips(fakeUsers);
 
     // Generate fake comments for each trip
-    const fakeTripComments = await generateFakeComments(fakeUserTrips);
+    const fakeTripComments = generateFakeComments(fakeUserTrips);
 
     // Log the generated data
     console.log(fakeUsers);
