@@ -34,13 +34,15 @@ router.get('/plan', async (req, res) => {
         res.status(500).json(err)
     }
 })
+
 // view all my trips - view handlebars
 router.get('/mytrips', async (req, res) => {
     try {
         const tripData = await Trip.findAll({
             include: [{ model: User, attributes: ['username'] }],
-            where: {userid: req.session.id}
+            where: { userid: req.session.userid}
         })
+        console.log(tripData)
         const trips = tripData.map((trip) => trip.get({ plain: true }));
         res.render('view', { trips, loggedIn: req.session.loggedIn })
     } catch (err) {

@@ -1,6 +1,7 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection.js');
 
+
 class Trip extends Model {}
 
 Trip.init({
@@ -34,6 +35,9 @@ Trip.init({
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: true
+  },
+  userid: {
+    type: DataTypes.INTEGER,
   },
 }, {
   sequelize,
