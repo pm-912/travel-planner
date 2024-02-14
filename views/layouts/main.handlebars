@@ -77,11 +77,12 @@
     <ul>
       <li><a href="/trips">Public Trips</a></li>
       <li><a href="/mytrips">View My Trips</a></li>
-      {{#if logged_in}}
-        <button class="no-button" id="logout">logout</button>
-      {{else}}
-        <li><a href="/login">Login</a></li>
-      {{/if}}
+      <li><a href="/plan">Plan A Trip</a></li>
+        {{#if logged_in}}
+          <button class="no-button" id="logout">logout</button>
+        {{else}}
+          <li><a href="/login">Login</a></li>
+        {{/if}}
     </ul>
   </nav>
 </header>

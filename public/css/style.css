@@ -157,3 +157,51 @@ h2 {
 #plan-trip-button:hover {
     background-color: #0056b3;
 }
+
+/* plan a trip css*/
+body {
+    background-color: #141414; /* dark grey background */
+    color: #ffffff; 
+  }
+  
+  #Plan-trip {
+    text-align: center; /* Ccnter */
+    margin-top: 50px; 
+  }
+  
+  .plan {
+    display: inline-block; 
+    background-color: #252525; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .user-details,
+  .plan-details,
+  .activities,
+  .accommodations,
+  .public {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  button,
+  select {
+    padding: 10px; 
+    margin-bottom: 10px; 
+    width: 80%; 
+  }
+  
+  button {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+  }
+  
+  button:hover {
+    background-color: #0056b3; 
+  }
+  

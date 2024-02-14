@@ -13,7 +13,7 @@ Comment.init({
   userid: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: 1
+    defaultValue: 1,
   },
   tripid: {
     type: DataTypes.INTEGER,
