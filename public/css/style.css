@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: lightslategrey;
     margin: 0;
     padding: 0;
 }
@@ -9,7 +9,7 @@ body {
     max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: lightslategrey;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -41,7 +41,7 @@ h2 {
 }
 
 .btn {
-    background-color: #f36;
+    background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -51,7 +51,7 @@ h2 {
 }
 
 .btn:hover {
-    background-color: #d32;
+    background-color: 007bff;
 }
 
 .link {
@@ -74,7 +74,7 @@ h2 {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: lightgray;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -124,7 +124,7 @@ h2 {
     display: inline-block;
     margin: 10px;
     padding: 20px;
-    background-color: #fff;
+    background-color: lightslategrey;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -160,18 +160,18 @@ h2 {
 
 /* plan a trip css*/
 body {
-    background-color: #141414; /* dark grey background */
+    background-color: lightslategray; /* dark grey background */
     color: #ffffff; 
   }
   
   #Plan-trip {
-    text-align: center; /* Ccnter */
+    text-align: center; /* center */
     margin-top: 50px; 
   }
   
   .plan {
     display: inline-block; 
-    background-color: #252525; 
+    background-color: lightgray; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
