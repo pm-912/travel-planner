@@ -175,22 +175,30 @@ body {
     border: 1px solid #000; /* black border */
 }
 
-.user-details,
-.plan-details,
-.activities,
-.accommodations {
-    margin-bottom: 20px;
-}
-
-input[type="text"],
-button,
-select {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
 button {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .user-details,
+  .plan-details,
+  .activities,
+  .accommodations,
+  .public {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  button,
+  select {
+    padding: 10px; 
+    margin-bottom: 10px; 
+    width: 80%; 
+  }
+  
+  button {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }

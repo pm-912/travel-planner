@@ -31,12 +31,12 @@ Comment.init({
   tripid2: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: 1,
+    defaultValue: 1
   },
   userid1: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: 1,
+    defaultValue: 1
   },
 }, {
   sequelize,
