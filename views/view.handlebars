@@ -1,17 +1,17 @@
-<div id="trip-info">
-  <h2>{{User.username}}'s' Trips</h2>
+<div id="public-trips">
+  <h2>Your Saved Trips</h2>
   {{#if loggedIn}}
   {{#each trips as |trip|}}
   <div class="trip">
     <card>
       <h3>Destination: {{destination}}</h3>
       <p>Length of Stay: {{stayLength}} days</p>
-      <p>Departure Date: {{ departureDate }}</p>
-      <p>Accommodation: {{ accommodation }}</p>
+      <p>Departure Date: {{departureDate}}</p>
+      <p>Accommodation: {{accommodation}}</p>
     </card>
   </div>
   {{/each}}
   {{else}}
   <p>No trips available.</p>
   {{/if}}
-</div>
+  </div>
