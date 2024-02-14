@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Trip, User } = require('../models');
+const { Trip, User, Comment} = require('../models');
 const withAuth = require('../utils/auth.js')
 //add withAuth to all requests
 
@@ -69,13 +69,15 @@ router.get('/trips/:id', async (req, res) => {
         const tripData = await Trip.findByPk((req.params.id),
             {
                 include: [
-                    { model: User, attributes: ['name'] },
+                    { model: User, attributes: ['username'] },
                     { model: Comment, attributes: ['content'] }
                 ],
             })
-        const trip = tripData.map((trip) => trip.get({ plain: true }));
+            // console.log(tripData)
+        const trip = tripData.get({ plain: true });
         res.render('singletrip', { trip, loggedIn: req.session.loggedIn })
     } catch (err) {
+      console.log(err)
         res.status(500).json(err)
     }
 })
