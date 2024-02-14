@@ -43,8 +43,6 @@ const createNewAccount = async (e) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    console.log('Response:', response);
-
     if (response.ok) {
       document.location.replace('/trips');
     } else {
@@ -55,6 +53,5 @@ const createNewAccount = async (e) => {
 
 
 signupForm.addEventListener('submit', (e) => {
-  console.log(e)
   createNewAccount(e)
 });

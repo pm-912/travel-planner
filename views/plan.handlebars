@@ -1,10 +1,10 @@
 <div id="Plan-trip">
   <h2>Plan a Trip</h2>
   {{#if loggedIn}}
-  <div class="plan">
+  <form class="plan">
     <section class="destination">
       <p>Where are you headed?</p>
-      <input type="text" id="destination" placeholder="Destination">
+      <input type="text" id="destination" placeholder="Destination (Required)">
     </section>
     <section class="user-details">
       <p>Choose a date for your trip:</p>
@@ -26,7 +26,7 @@
     <section class="accommodations">
       <p>Plan Accommodations</p>
       <!-- Add accommodations dropdown here -->
-      <select id="accommodations-dropdown">
+      <select id="accommodation">
         <option value="accommodation1">Hotel</option>
         <option value="accommodation2">AirBnB</option>
         <option value="accommodation3">Camping</option>
@@ -37,13 +37,15 @@
     </section>
     <section class="public">
       <p>Set trip to private? Set to public on by default</p>
-      <select id="privacy-dropdown">
+      <select id="privacy">
         <option value="private">Yes, set this trip to private</option>
         <option value="public">No, keep this trip public</option>
       </select>
     </section>
-  </div>
+    <button id="submit-trip">Add to My Trips!</button>
+  </form>
   {{else}}
   <a href="/login">You must login first to view this page</a>
   {{/if}}
 </div>
+<script src="/js/submittrip.js"></script>

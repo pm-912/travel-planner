@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Planner</title>
+  <title>Travel Babble</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
     .navbar {
@@ -13,27 +14,39 @@
       padding: 10px 20px;
       background-color: #f0f0f0;
     }
+
     .globe {
       width: 80px;
       height: auto;
-      animation: spin 2s linear infinite; /* Animation for spinning */
+      animation: spin 2s linear infinite;
+      /* Animation for spinning */
     }
+
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .navbar ul {
       display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
     }
+
     .navbar li {
       margin-right: 20px;
     }
+
     .navbar li:last-child {
       margin-right: 0;
     }
+
     .navbar a {
       text-decoration: none;
       color: #333;
@@ -41,37 +54,26 @@
     }
   </style>
 </head>
+
 <body>
   <header class="navbar">
-  <img src="globe.png" alt="Spinning Globe" class="globe">
-  <h1>Travel Planner</h1>
-  <nav>
-    <ul>
-      <li><a href="/trips">Public Trips</a></li>
-      <li><a href="/mytrips">View My Trips</a></li>
-      <li><a href="/plan">Plan A Trip</a></li>
-        {{#if logged_in}}
-          <button class="no-button" id="logout">logout</button>
-        {{else}}
-          <li><a href="/login">Login</a></li>
-        {{/if}}
-    </ul>
-  </nav>
-</header>
-    <img src="https://www.pngkey.com/png/detail/578-5785406_fully-translated-and-localized-surveys-and-survey-tool.png" alt="Fully Translated And Localized Surveys And Survey Tool - World Flags Globe@pngkey.com" class="globe">
-    <h1>Travel Planner</h1>
+    <img src="https://www.pngkey.com/png/detail/578-5785406_fully-translated-and-localized-surveys-and-survey-tool.png"
+      alt="Fully Translated And Localized Surveys And Survey Tool - World Flags Globe@pngkey.com" class="globe">
+    <h1>Travel Babble</h1>
     <nav>
       <ul>
         <li><a href="/trips">Public Trips</a></li>
         <li><a href="/mytrips">View My Trips</a></li>
+        <li><a href="/plan">Plan A Trip</a></li>
         {{#if logged_in}}
-          <button class="no-button" id="logout">logout</button>
+        <button class="no-button" id="logout">logout</button>
         {{else}}
-          <li><a href="/login">Login</a></li>
+        <li><a href="/login">Login</a></li>
         {{/if}}
       </ul>
     </nav>
   </header>
+
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
@@ -81,5 +83,5 @@
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
-</html>
 
+</html>
