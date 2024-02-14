@@ -1,25 +1,41 @@
+header {
+    background: linear-gradient(to bottom, #007bff, #ffffff);
+    color: #fff;
+    padding: 10px 20px;
+    border-bottom: 2px solid #000;
+}
+
+footer {
+    background: linear-gradient(to bottom, #ffffff, #007bff);
+    color: #fff;
+    padding: 10px 20px;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: lightslategray; 
-    color: #ffffff; 
+    background-color: lightslategray;
+    color: #ffffff;
     padding: 0;
     margin: 20px;
 }
 
 .login-card {
-    background-color: lightslategray; /* background color */
+    background-color: lightslategray;
+    /* background color */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
-    color: #ffffff; /* text color */
+    color: #ffffff;
+    /* text color */
 }
 
 .page-title {
     font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
-    color: #333; /* heading color */
+    color: #333;
+    /* heading color */
 }
 
 .form-group {
@@ -37,13 +53,20 @@ body {
 .btn {
     width: 100%;
     padding: 10px;
-    border: 1px solid #000; /* change border color to black */
+    border: 1px solid #000;
+    /* change border color to black */
     border-radius: 4px;
-    color: #ffffff; /* text color to white */
+    color: #ffffff;
+    /* text color to white */
+}
+
+#password-login {
+    color: #000;
 }
 
 .btn {
-    background-color: #007bff; /* button background color */
+    background-color: #007bff;
+    /* button background color */
     cursor: pointer;
     font-size: 16px;
     text-transform: uppercase;
@@ -51,7 +74,8 @@ body {
 }
 
 .btn:hover {
-    background-color: #0056b3; /* button hover background color */
+    background-color: #0056b3;
+    /* button hover background color */
 }
 
 .link {
@@ -124,10 +148,12 @@ body {
     display: inline-block;
     margin: 10px;
     padding: 20px;
-    background-color: lightslategrey; /* background color to dark grey */
+    background-color: rgb(210, 211, 213);
+    /* background color lighter */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #ffffff; /* text color to white */
+    color: #ffffff;
+    /* text color to white */
 }
 
 .trip h3 {
@@ -153,7 +179,8 @@ body {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border: 1px solid #000; /* black border */
+    border: 1px solid #000;
+    /* black border */
 }
 
 #plan-trip-button:hover {
@@ -172,32 +199,33 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border: 1px solid #000; /* black border */
+    border: 1px solid #000;
+    /* black border */
 }
 
 button {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-  }
-  
-  .user-details,
-  .plan-details,
-  .activities,
-  .accommodations,
-  .public {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.user-details,
+.plan-details,
+.activities,
+.accommodations,
+.public {
     margin-bottom: 20px;
-  }
-  
-  input[type="text"],
-  button,
-  select {
-    padding: 10px; 
-    margin-bottom: 10px; 
-    width: 80%; 
-  }
-  
-  button {
-    background-color: #007bff; 
-    color: #ffffff; 
+}
+
+input[type="text"],
+button,
+select {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+button {
+    background-color: #007bff;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
