@@ -1,34 +1,22 @@
 <div id="single-trip">
   <h2>Trip Details</h2>
   {{#if loggedIn}}
-    {{!-- {{#each trip}} --}}
       <div class="trip">
         <section class="user-details">
           <h2>User Details</h2>
           <p>Userame: {{ user.username }}</p>
-          <p>Email: {{ user.email }}</p>
-          <!-- Add more user details as needed -->
         </section>
         <section class="trip-details">
           <h2>Trip Details</h2>
-          <p>Title: {{ trip.title }}</p>
-          <p>Date: {{ trip.date }}</p>
-          <!-- Add more trip details as needed -->
+          <p>Destination: {{ Trip.destination }}</p>
+          <p>Departure Date: {{ Trip.departureDate }}</p>
+          <p>Length Of Stay: {{ Trip.stayLength }}</p>
         </section>
-        <section class="area-details">
-          <h2>Area</h2>
-          <p>Name: {{ area.name }}</p>
-          <p>Location: {{ area.location }}</p>
-          <!-- Add more area details as needed -->
+        <section class="description-details">
+          <h2>Description</h2>
+          <p>Trip Description: {{ Trip.description }}</p>
         </section>
-        <section class="activities">
-          <h2>Activities Done</h2>
-          <ul>
-            {{#each activities}}
-              <li>{{ this }}</li>
-            {{/each}}
-          </ul>
-        </section>
+        
         <!-- Comments section -->
         <section class="comments">
           <h2>Comments</h2>
@@ -46,9 +34,6 @@
           </form>
         </section>
       </div>
-    {{!-- {{else}}
-      <p>No single trip available.</p>
-    {{/each}} --}}
   {{else}}
     <p>Please log in to view single trip.</p>
   {{/if}}
