@@ -42,8 +42,9 @@ router.get('/mytrips', async (req, res) => {
             include: [{ model: User }],
             where: { userid: req.session.userid}
         })
-        console.log(tripData)
+        // console.log(tripData)
         const trips = tripData.map((trip) => trip.get({ plain: true }));
+        console.log(trips)
         res.render('view', { trips, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err)
