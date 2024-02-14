@@ -39,7 +39,7 @@ router.get('/plan', async (req, res) => {
 router.get('/mytrips', async (req, res) => {
     try {
         const tripData = await Trip.findAll({
-            include: [{ model: User, attributes: ['username'] }],
+            include: [{ model: User }],
             where: { userid: req.session.userid}
         })
         console.log(tripData)
@@ -77,6 +77,7 @@ router.get('/trips/:id', async (req, res) => {
             })
             // console.log(tripData)
         const trip = tripData.get({ plain: true });
+        console.log(trip)
         res.render('singletrip', { trip, loggedIn: req.session.loggedIn })
     } catch (err) {
       console.log(err)

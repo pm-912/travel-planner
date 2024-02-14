@@ -3,6 +3,7 @@
   {{#if loggedIn}}
   {{#each trips as |trip|}}
   <div class="trip">
+    <a href="/trips/{{tripid}}" class="trip">
     <card>
       <h3>Destination: {{destination}}</h3>
       <p>Length of Stay: {{stayLength}} days</p>
@@ -10,6 +11,7 @@
       <p>Accommodation: {{accommodation}}</p>
       <p>Description: {{description}}</p>
     </card>
+    </a>
   </div>
   {{/each}}
   {{else}}
