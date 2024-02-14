@@ -22,6 +22,7 @@ const createFakeTrip = () => {
     stayLength: faker.number.int({ min: 1, max: 14 }),
     departureDate: departureDate,
     accommodation: accommodationOptions[Math.floor(Math.random() * accommodationOptions.length)],
+    description: faker.lorem.sentences(2),
     public: true
   };
 };

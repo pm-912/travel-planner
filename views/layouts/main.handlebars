@@ -43,6 +43,21 @@
 </head>
 <body>
   <header class="navbar">
+  <img src="globe.png" alt="Spinning Globe" class="globe">
+  <h1>Travel Planner</h1>
+  <nav>
+    <ul>
+      <li><a href="/trips">Public Trips</a></li>
+      <li><a href="/mytrips">View My Trips</a></li>
+      <li><a href="/plan">Plan A Trip</a></li>
+        {{#if logged_in}}
+          <button class="no-button" id="logout">logout</button>
+        {{else}}
+          <li><a href="/login">Login</a></li>
+        {{/if}}
+    </ul>
+  </nav>
+</header>
     <img src="https://www.pngkey.com/png/detail/578-5785406_fully-translated-and-localized-surveys-and-survey-tool.png" alt="Fully Translated And Localized Surveys And Survey Tool - World Flags Globe@pngkey.com" class="globe">
     <h1>Travel Planner</h1>
     <nav>
