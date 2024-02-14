@@ -1,11 +1,20 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background: linear-gradient(to bottom, #007bff, #ffffff);
     color: #fff;
     padding: 10px 20px;
-    border-bottom: 2px solid #000;
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
     background: linear-gradient(to bottom, #ffffff, #007bff);
     color: #fff;
     padding: 10px 20px;
@@ -152,7 +161,7 @@ body {
     /* background color lighter */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #ffffff;
+    color: #000000;
     /* text color to white */
 }
 
@@ -191,7 +200,9 @@ body {
 #Plan-trip {
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 50px; /* bottom margin */
 }
+
 
 .plan {
     display: inline-block;
